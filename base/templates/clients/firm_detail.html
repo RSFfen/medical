@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+  <h1>Организация</h1>
+  <p><strong>       Наименование:</strong> {{ firm.name }}</p> 
+  <p><strong>Форма собственности:</strong> {{ firm.type_ownership }}</p> 
+  <p><strong>       Код по ОКВЭД:</strong> {{ firm.type_econom_activity }}</p>
+  <p><strong>    Доп. информация:</strong> {{ firm.add_info }}</p> 
+
+{% endblock %}

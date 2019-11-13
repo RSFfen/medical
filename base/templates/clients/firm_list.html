@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Список организаций</h1>
+    <p>
+        <a href="{% url 'firm_new' %}">+ Добавить организацию</a>
+    </p>
+
+    {% if firm_list %}
+    <ul>
+
+      {% for firm in firm_list %}
+      <li>
+        <a href="{{ firm.get_absolute_url }}">{{ firm.name }}</a> 
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>В базе нет организаций</p>
+    {% endif %}       
+{% endblock %}

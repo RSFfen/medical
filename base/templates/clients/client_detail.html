@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+  <h1>Клиент</h1>
+  <p><strong>Фамилия Имя Отчество:</strong> {{ client.name }}</p> 
+  <p><strong>                 Пол:</strong> {{ client.sex }}</p> 
+  <p><strong>         Тип расчета:</strong> {{ client.type_calc }}</p>
+  <p><strong>       Дата рождения:</strong> {{ client.birth }}</p> 
+  <p><strong>           Профессия:</strong> {{ client.prof }}</p>  
+  <p><strong>         Стаж работы:</strong> {{ client.experience }}</p> 
+   {% if client.firm == None %}
+  <p><strong>        Место работы:</strong> <a href="">{{ client.firm }}
+   {% else %}
+  <p><strong>        Место работы:</strong> <a href="{% url 'firm-detail' client.firm.pk %}">{{ client.firm }}      </a></p> 
+   {% endif %}
+  <p><strong>     Доп. информация:</strong> {{ client.add_info }}</p>  
+
+{% endblock %}

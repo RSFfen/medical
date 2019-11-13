@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Список клиентов</h1>
+    <p>
+        <a href="{% url 'client_new' %}">+ Добавить клиента</a>
+    </p>
+
+    {% if client_list %}
+    <ul>
+
+      {% for client in client_list %}
+      <li>
+        <a href="{{ client.get_absolute_url }}">{{ client.name }}</a> 
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>В базе нет клиентов</p>
+    {% endif %}       
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends  'base_base.html' %}
+{% load static %}
+<!--    
+{% load widget_tweaks %}
+-->
+
+<!--    
+{% block script %}
+  <link href="{% static "main.css" %}" rel="stylesheet" media="screen">
+
+  <script src="{% static 'javascript/jquery-3.4.1.min.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/gh/xcash/bootstrap-autocomplete@v2.2.2/dist/latest/bootstrap-autocomplete.min.js"></script>
+    <script>
+        $('.basicAutoComplete').autoComplete(
+            {minLength: 1}
+        );
+        $('.dropdown-menu').css({'top': 'auto', 'left': 'auto'})
+
+    </script>
+{% endblock %}
+-->
+
+{% load crispy_forms_tags %}
+
+{% block main %}
+<div class="card">
+<div class="card-body">
+<h4 class="card-title" align = "center"><b>Поиск клиента</b></h4>
+
+<form method="GET" action="{% url 'index' %}">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}">
+    <input type="text" class="form-control basicAutoComplete" autocomplete="off" data-url: "client_autocomplete/">
+    <button type="submit" class="btn btn-primary btn-block">Добавить/изменить</button>
+</form>
+</div>
+</div>
+{% endblock %}
+
+{% if form.non_field_errors %}
+    <p>Вы ввели неверные данные</p>
+{% endif %}
+
+</body>
+</html>

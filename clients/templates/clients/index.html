@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Главная - Список клиентов</title>
+    </head>
+    <body>
+        <hl>Клиенты</hl>
+        {% for cc in cclients %}
+        <div>
+            <h2>{{ cc.name }}</h2>
+            <p>{{ cc.prof }}</p>
+            <p>{{ cc.add_info }}</p>
+        </div>
+        {% endfor %}
+    </body>
+</html>
